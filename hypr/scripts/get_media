@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+player_icon=""
+player_name=$(playerctl metadata -f "{{playerName}}")
+media=$(playerctl metadata -f "{{title}}")
+player_status=$(playerctl status)
+
+if [[ $player_name = "spotify" ]]
+then
+    player_icon=""
+elif [[ $player_name = "firefox" ]]
+then
+    player_icon=""
+else 
+    player_icon=""
+fi
+
+
+echo -e "$player_icon $media"
+

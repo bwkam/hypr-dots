@@ -1,0 +1,6 @@
+#!/bin/bash
+
+killall swaybg
+
+bash ~/.config/hypr/scripts/background-changer 
+

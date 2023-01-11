@@ -1,0 +1,186 @@
+@import url("colors.css");
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Iosevka Fixed", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+    padding: 2.7px;
+}
+
+window#waybar {
+    color: white;
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: white;
+}
+
+
+
+#window {
+    background-color: @crust;
+    border-radius: 15px;
+    color: @sapphire;
+}
+
+/* CUSTOM MODULES */
+
+#custom-wall {
+    margin-left: 20px;
+    background-color: @crust;
+    color: @yellow;
+    border-radius: 15px 0 0 15px;
+}
+
+#custom-arch {
+    background: url("arch-p.png");
+    background-repeat: no-repeat;
+    background-color: #89b4fa;
+    padding: 10px 15px;
+    background-position: center;
+    border-radius: 15px;
+    margin-right: 10px;
+}
+
+#custom-screenshot {
+    background-color: @crust;
+    border-radius: 0px 15px 15px 0px;
+    color: @red;
+}
+
+#custom-pacman {
+    background-color: @crust;
+    color: @mauve;
+    border-radius: 0 15px 15px 0;
+}
+
+#custom-media {
+    background-color: @crust;
+    border-radius: 15px;
+    color: @sapphire;
+    margin: 0 50px;
+}
+
+#custom-rec {
+    background-color: @crust;
+}
+
+#custom-github {
+    background-color: @crust;
+    color: @mauve;
+}
+
+#custom-mail {
+    background-color: @crust;
+    border-radius: 0 15px 15px 0;
+    color: @pink;
+}
+
+/* ==================== */
+
+#network {
+    background-color: @crust;
+    color: @sapphire;
+}
+
+#workspaces {
+    background-color: @crust;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+#workspaces button {
+    color: white;
+    font-size: 20px;
+}
+
+#workspaces button.focused {
+}
+
+
+
+
+#cpu {
+    background-color: @gray;
+    border-radius: 15px;
+}
+
+#mode, 
+#clock, 
+#battery, 
+#pulseaudio, 
+#window, 
+#cpu, 
+#custom-wall, 
+#network,
+#custom-screenshot,
+#custom-rec,
+#tray,
+#workspaces,
+#custom-pacman,
+#custom-media,
+#custom-github,
+#custom-mail
+{
+    padding: 0 10px;
+    font-weight: bold;
+
+}
+
+#tray {
+    background-color: @crust;
+    border-radius: 15px;
+    margin-left: 30px;
+}
+
+#pulseaudio {
+    background: @crust;
+    border-radius: 15px 0 0 15px;
+    color: white;
+}
+
+#mode {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+
+#clock {
+    background-color: @crust;
+}
+
+#battery {
+    background-color: @crust;
+    color: white;
+}
+
+#battery.charging {
+    color: @crust;
+    background-color: @green;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: @red;
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

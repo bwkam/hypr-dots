@@ -1,0 +1,141 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+    "margin-right": 25,
+    "margin-left": 25,
+    "margin-top": 10,
+    "modules-left": ["custom/arch", "wlr/workspaces"],
+    "modules-center": ["custom/media"],
+    "modules-right": ["pulseaudio", "clock", "battery", "network", "custom/github", "custom/mail", "custom/wall", "custom/rec", "custom/screenshot", "tray"],
+    "battery": {
+        "format": "<span font='20' rise='-3000'>{icon}</span> {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "format": "{:%I:%M} ",
+        "format-alt": "{:%a, %d. %b  %I:%M}"
+    },
+
+    "tray": {
+        "icon-size": 20,
+        "spacing": 0
+    },
+
+    "custom/wall": {
+        "format": "",
+        "on-click": "sh ~/.config/hypr/scripts/kill_wall"
+    },
+
+    "custom/sep": {
+      "format": "<span font='20' rise='-3000'></span>"  
+    },
+
+    "custom/github": {
+        "on-click": "firefox github.com",
+        "format": "<span font='12' rise='-3000'></span>"
+    },
+
+    "custom/rec": {
+        "exec": "~/.config/hypr/scripts/screen-rec status",
+	    "format": "<span font='20' rise='-3000'></span>",
+	    "on-click": "~/.config/hypr/scripts/screen-rec toggle fullscreen",
+	    "on-click-right": "~/.config/hypr/scripts/screen-rec toggle region",
+	    "restart-interval": 1,
+	    "return-type": "json",
+	    "tooltip": true
+    },
+
+    "custom/mail": {
+        "format": "<span font='12' rise='-3000'></span>",
+        "on-click": "firefox https://mail.google.com/mail/u/0/#inbox"
+    },
+
+    "custom/media": {
+        "format": "<span font='20' rise='-3000'>{icon}</span> {}",
+        "interval": 1,
+        "exec": "$HOME/.config/hypr/scripts/get_media 2> /dev/null", // Script in resources/custom_modules folder
+    },
+
+    "custom/arch": {
+        "format": " {} ",
+    },
+
+    "custom/pacman": {
+        "format": "{} <span font='20' rise='-3000'></span>",
+        "interval": 3600,                     // every hour
+        "exec": "checkupdates | wc -l",       // # of updates
+        "exec-if": "exit 0",
+        "on-click": "kitty sudo pacman -Syu", // update system
+        "signal": 8
+    },
+
+    "custom/screenshot": {
+        "format": "<span font='20' rise='-3000'></span>",
+        "on-click": "gnome-screenshot"
+    },
+
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-icons": [""],
+        "format-wifi": "<span font='20' rise='-3000'>{icon}</span>",
+        "format-linked": "",
+        "format-disconnected": "",
+        "format-alt": "   "
+    },
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+
+    "cpu": {
+        "interval":1,
+        "format": "{icon0} {icon1} {icon2} {icon3}",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+    },
+
+    "pulseaudio": {
+        "format": "{volume}% <span font='20' rise='-3000'>{icon}</span>",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "headset": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "wlr/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            // "active": "",
+            "default": ""
+        },
+        "sort-by-number": true
+    },
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+}
